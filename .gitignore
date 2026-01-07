@@ -1,0 +1,44 @@
+# macOS Systemdateien
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon und Thumbnails
+Icon?
+._*
+
+# Spotlight, temporäre Dateien
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# macOS-Dateien für Time Machine
+*.swp
+*.swo
+
+# macOS Finder Tags
+*.icloud
+
+# Benutzerdefinierte temporäre Dateien
+*.tmp
+*.log
+
+# Node.js / npm (falls du JS-Projekte hast)
+node_modules/
+npm-debug.log
+
+# Python (falls du Python nutzt)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE-spezifische Dateien
+# VSCode
+.vscode/
+# IntelliJ, PyCharm, WebStorm etc.
+.idea/
+
+# macOS Screenshots
+*.png
+*.jpg
