@@ -1,18 +1,28 @@
 package main.java.com.viktor.horus.model;
 
+import java.time.LocalDate;
+
 // In diesem Bereich werden die Attribute der Habits definiert.
 
 public class Habit {
+    private int id;
+    private LocalDate createdAt;
     private String name;
     private String description;
-    private int frequency;
+    private int everyXDays;
     private boolean completed;
+    private LocalDate lastCompletedAt;
+    private boolean due;
 
-    public Habit(String name, String description, int frequency) {
+    public Habit(int id, String name, String description, int everyXDays) {
+        this.id = id;
+        this.createdAt = LocalDate.now();
         this.name = name;
         this.description = description;
-        this.frequency = frequency;
+        this.everyXDays = everyXDays;
         this.completed = false;
+        this.lastCompletedAt = null;
+        this.due = false;
     }
 
     public String getName() {
@@ -23,6 +33,13 @@ public class Habit {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getDescription() {
         return description;
     }
@@ -31,12 +48,12 @@ public class Habit {
         this.description = description;
     }
 
-    public int getFrequency() {
-        return frequency;
+    public int getEveryXDays() {
+        return everyXDays;
     }
 
-    public void setFrequency(int frequency) {
-        this.frequency = frequency;
+    public void setEveryXDays(int everyXDays) {
+        this.everyXDays = everyXDays;
     }
 
     public boolean isCompleted() {
@@ -45,5 +62,25 @@ public class Habit {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public void setDue(boolean due) {
+        this.due = due;
+    }
+
+    public boolean isDue() {
+        return due;
+    }
+
+    public LocalDate getLastCompletedAt() {
+        return lastCompletedAt;
+    }
+
+    public void setLastCompletedAt(LocalDate lastCompletedAt) {
+        this.lastCompletedAt = lastCompletedAt;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 }
