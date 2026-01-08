@@ -13,9 +13,15 @@ public class HabitCli {
         boolean running = true;
         while (running) {
             // Menü anzeigen
+            System.out.println("");
+            System.out.println("==========================================");
+            System.out.println("    HORUS, Habit-Tracker - Hauptmenü    ");
+            System.out.println("==========================================");
+            System.out.println("");
             System.out.println("1. Habit hinzufügen");
             System.out.println("2. Habits pflegen");
             System.out.println("3. Beenden");
+            System.out.println("");
 
             // Menüauswahl vom Benutzer lesen
             Scanner scanner = new Scanner(System.in);
