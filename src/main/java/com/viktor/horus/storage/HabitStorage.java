@@ -17,13 +17,6 @@ public class HabitStorage {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE))) {
             for (Habit habit : habits) {
                 StringBuilder sb = new StringBuilder();
-                sb.append("ID").append(DELIMITER);
-                sb.append("CreatedAt").append(DELIMITER);
-                sb.append("Name").append(DELIMITER);
-                sb.append("Description").append(DELIMITER);
-                sb.append("EveryXDays").append(DELIMITER);
-                sb.append("Completed").append(DELIMITER);
-                sb.append("Due").append(DELIMITER);
                 sb.append(habit.getId()).append(DELIMITER);
                 sb.append(habit.getCreatedAt()).append(DELIMITER);
                 sb.append(habit.getName()).append(DELIMITER);
@@ -51,10 +44,10 @@ public class HabitStorage {
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(DELIMITER);
                 int id = Integer.parseInt(values[0]);
-                String name = values[1];
-                String description = values[2];
-                int frequency = Integer.parseInt(values[3]);
-                boolean completed = Boolean.parseBoolean(values[4]);
+                String name = values[2];
+                String description = values[3];
+                int frequency = Integer.parseInt(values[4]);
+                boolean completed = Boolean.parseBoolean(values[5]);
 
                 Habit habit = new Habit(id, name, description, frequency);
                 habit.setCompleted(completed);
