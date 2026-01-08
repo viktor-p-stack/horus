@@ -16,16 +16,16 @@ A simple console-based Habit Tracker written in Java. This program allows you to
 
 ## Project Structure
 
-habit-tracker/
+  habit-tracker/
   
-  src/main/java/com/viktor/habittracker/
+    src/main/java/com/viktor/habittracker/
     
-    model/ # Habit data class
+      model/ # Habit data class
     
-    service/ # Logic for habit management
+      service/ # Logic for habit management
     
-    storage/ # Save/load habits to CSV
+      storage/ # Save/load habits to CSV
     
-    ui/ # Console interface (main entry point)
+      ui/ # Console interface (main entry point)
   
-  habits.csv # Optional: CSV file with saved habits
+    habits.csv # Optional: CSV file with saved habits
