@@ -114,11 +114,17 @@ public class HabitStorage {
         save(habits);
     }
 
-    // Logik zum Generieren der nächsten eindeutigen ID für ein neues Habit.
+    // Löschen eines Habits anhand der ID.
+    public static void deleteHabit(int id) {
+        List<Habit> habits = load();
+        habits.removeIf(habit -> habit.getId() == id);
+        save(habits);
+    }
+
+    // Generieren der nächsten eindeutigen ID für ein neues Habit.
     public static int getNextId() {
         int nextId = 1;
         File file = new File(FILEID);
-        
         try {
             // Datei existiert? Dann ID auslesen
             if (file.exists()) {
@@ -127,7 +133,6 @@ public class HabitStorage {
                     nextId = Integer.parseInt(lines.get(0).trim()) + 1;
                 }
             }
-
             // Neue ID zurückschreiben
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILEID))) {
                 bw.write(String.valueOf(nextId));

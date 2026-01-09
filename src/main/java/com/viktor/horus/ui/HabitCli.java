@@ -31,6 +31,7 @@ public class HabitCli {
             switch (choiceMainMenu) {
                 case 1:
                     // Logik zum Hinzufügen eines Habits     
+                    System.out.println("");
                     System.out.println("Habit hinzufügen ausgewählt.");
                     System.out.println("Bitte gib den Namen des Habits ein:");
                     scanner.nextLine(); // Verhindert, dass der nächste Scanner.nextInt() den Zeilenumbruch liest
@@ -45,19 +46,39 @@ public class HabitCli {
                     break;
                 case 2:
                     // Habits in der Konsole ausgeben.
+                    System.out.println("");
                     System.out.println("Habits pflegen ausgewählt.");
+                    System.out.println("");
                     HabitStorage.printHabits(); 
-                    System.out.println("1 für \"Erledigt setzen\", 0 für \"Zurück zum Menü\":");
+                    System.out.println("");
+                    System.out.println("1. Habit erledigt setzen");
+                    System.out.println("2. Habit löschen");
+                    System.out.println("0. Zurück zum Menü");
+                    System.out.println("");
                     Integer choiceSubMenu = scanner.nextInt();
                     switch (choiceSubMenu) {
                         case 1:
-                            // Logik zum Markieren eines Habits als erledigt
+                            // Logik zum Markieren eines Habits als erledigt.
+                            System.out.println("");
                             System.out.println("Bitte gib die ID des Habits ein, das als erledigt markiert werden soll. 0 für \"Zurück zum Menü\":");
                             int idChoice = scanner.nextInt();
                             while (idChoice != 0) {
                                 HabitStorage.markHabitAsDone(idChoice);                                
                                 System.out.println("Gebe die nächste ID des Habits ein, das als erledigt markiert werden soll. 0 für \"Zurück zum Menü\":");
                                 idChoice = scanner.nextInt();
+                            }
+                            break;
+                        case 2:
+                            // Logik zum Löschen eines Habits.
+                            System.out.println("");    
+                            System.out.println("Bitte gebe die zu löschende ID ein. 0 für \"Zurück zum Menü\":");
+                            System.out.println("");
+                            Integer choiceSub1Menu = scanner.nextInt();
+                            while (choiceSub1Menu != 0) {
+                                HabitStorage.deleteHabit(choiceSub1Menu);
+                                System.out.println("Habit gelöscht.");
+                                System.out.println("");
+                                System.out.println("Bitte gebe eine weitere zu löschende ID ein. 0 für \"Zurück zum Menü\":");
                             }
                             break;
                         case 0:
