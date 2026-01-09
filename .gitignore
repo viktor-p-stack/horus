@@ -1,5 +1,7 @@
-# habits.csv
+# Personalisierte Ressourcendateien
+ressources/credentials.json
 ressources/habits.csv
+ressources/id.txt
 
 # macOS Systemdateien
 .DS_Store

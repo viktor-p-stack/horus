@@ -39,7 +39,7 @@ public class HabitCli {
                     String description = scanner.nextLine();
                     System.out.println("Bitte gib die Frequenz des Habits ein (z.B. 1 für täglich, 7 für wöchentlich):");
                     int frequency = scanner.nextInt();
-                    int id = (int) (Math.random() * 10000); // Generiere eine zufällige ID
+                    int id = HabitStorage.getNextId();
                     HabitStorage.addHabit(id, name, description, frequency);
                     System.out.println("Habit erfolgreich hinzugefügt!");
                     break;

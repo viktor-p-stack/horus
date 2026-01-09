@@ -3,6 +3,8 @@ package main.java.com.viktor.horus.storage;
 import main.java.com.viktor.horus.model.Habit;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 // Diese Klasse wird für die Speicherung und Verwaltung der Habits verwendet.
 public class HabitStorage {
     private static final String FILE ="src/main/ressources/habits.csv";
+    private static final String FILEID ="src/main/ressources/id.csv";
     private static final String DELIMITER = ",";
 
     // Logik zum Speichern der Habits in die CSV-Datei.
@@ -109,5 +112,31 @@ public class HabitStorage {
             }
         }
         save(habits);
+    }
+
+    // Logik zum Generieren der nächsten eindeutigen ID für ein neues Habit.
+    public static int getNextId() {
+        int nextId = 1;
+        File file = new File(FILEID);
+        
+        try {
+            // Datei existiert? Dann ID auslesen
+            if (file.exists()) {
+                List<String> lines = Files.readAllLines(Paths.get(FILEID));
+                if (!lines.isEmpty()) {
+                    nextId = Integer.parseInt(lines.get(0).trim()) + 1;
+                }
+            }
+
+            // Neue ID zurückschreiben
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILEID))) {
+                bw.write(String.valueOf(nextId));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return nextId;
     }
 }
